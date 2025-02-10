@@ -1,0 +1,61 @@
+<DensityCalculator>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    Label:
+        text: "Калькулятор плотности"
+        font_size: 24
+        size_hint_y: None
+        height: 50
+        color: 0.1, 0.1, 0.1, 1
+
+    TextInput:
+        id: mass_input
+        hint_text: "Масса (кг)"
+        multiline: False
+        input_filter: 'float'
+        size_hint_y: None
+        height: 40
+
+    TextInput:
+        id: length_input
+        hint_text: "Длина (м)"
+        multiline: False
+        input_filter: 'float'
+        size_hint_y: None
+        height: 40
+
+    TextInput:
+        id: width_input
+        hint_text: "Ширина (м)"
+        multiline: False
+        input_filter: 'float'
+        size_hint_y: None
+        height: 40
+
+    TextInput:
+        id: height_input
+        hint_text: "Высота (м)"
+        multiline: False
+        input_filter: 'float'
+        size_hint_y: None
+        height: 40
+
+    Button:
+        text: "Рассчитать"
+        size_hint_y: None
+        height: 50
+        background_color: 0.2, 0.6, 1, 1
+        color: 1, 1, 1, 1
+        on_press: root.calculate()
+
+    Label:
+        id: result_label
+        text: ""
+        size_hint_y: None
+        height: 100
+        color: 0.1, 0.1, 0.1, 1
+        halign: "center"
+        valign: "middle"
+        text_size: self.size
