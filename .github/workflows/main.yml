@@ -33,9 +33,12 @@ jobs:
           # Установка необходимых компонентов Android SDK
           yes | $ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager --install "build-tools;34.0.0" "platforms;android-34" "platform-tools"
 
+          # Проверка наличия Aidl
+          ls $ANDROID_HOME/build-tools/34.0.0/aidl || echo "Aidl not found!"
+
       - name: Build APK
         run: |
-          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/tools/bin
+          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/build-tools/34.0.0
           buildozer init
           buildozer -v android debug
 
